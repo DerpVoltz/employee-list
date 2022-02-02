@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "jest": "^27.4.7"
+  },
+  "name": "employee-list",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerpVoltz/employee-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DerpVoltz/employee-list/issues"
+  },
+  "homepage": "https://github.com/DerpVoltz/employee-list#readme"
+}
