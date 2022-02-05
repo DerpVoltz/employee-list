@@ -1,0 +1,8 @@
+.team {
+    height: 125px;
+    padding: 40px;
+}
+
+.employee-box {
+    box-shadow: 5px 5px 8px #888;
+}

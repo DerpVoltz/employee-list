@@ -1,8 +1,9 @@
-const fs = require('fs');
+const fs = require('fs/promises');
 const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
+const writeHtml = require('./src/page-template');
 const employees = [];
 
 const managerQuestions = [
@@ -108,6 +109,8 @@ function nextEmployee() {
                 employees.push(engineer);
                 if (data.newEmployee) {
                     nextEmployee(data);
+                } else {
+                    newFile();
                 }
             });
         } else {
@@ -117,6 +120,8 @@ function nextEmployee() {
                 employees.push(intern);
                 if (data.newEmployee) {
                     nextEmployee(data);
+                } else {
+                    newFile();
                 }
             });
         }
@@ -130,8 +135,18 @@ function manager() {
         employees.push(manager);
         if(data.newEmployee) {
             nextEmployee();
+        } else {
+            newFile();
         }
     });
+}
+
+function newFile() {
+    fs.writeFile('./dist/index.html', writeHtml(employees)).then(err => {
+        if (err) {
+            console.log('there was a problem writing the file');
+        }
+    })
 }
 
 manager();
