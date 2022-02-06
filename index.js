@@ -144,7 +144,12 @@ function manager() {
 function newFile() {
     fs.writeFile('./dist/index.html', writeHtml(employees)).then(err => {
         if (err) {
-            console.log('there was a problem writing the file');
+            console.log('There was a problem with writing HTML');
+        }
+    });
+    fs.copyFile('./src/style.css', './dist/style.css').then(err => {
+        if (err) {
+            console.log('There was a problem with copyin CSS.')
         }
     })
 }
