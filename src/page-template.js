@@ -4,7 +4,7 @@ function writeHtml(employees) {
     <html lang="eng">
         <head>
             <meta charset="UTF-8" />
-            <title>Employee List</title>
+            <title>Team List</title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
             <link rel="stylesheet" href="./style.css" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,7 +31,7 @@ function employeeHtml(employees) {
         const email = employees[i].getEmail();
         if (employees[i].getRole() === 'Manager') {
             const office = employees[i].getOfficeNumber();
-            const newHtml = [`
+            const newHtml = `
                 <div class="col-lg-3 col-md-5 m-2 my-5 p-0">
                     <div class="employee-box">
                         <div class="text-light p-1 title-card">
@@ -44,11 +44,11 @@ function employeeHtml(employees) {
                             <p class="bg-light border m-0 mb-3 mx-3">Office number: ${office}</p>
                         </div>
                     </div>
-                </div>`];
+                </div>`;
             finalHtml.push(newHtml);
         } else if (employees[i].getRole() === 'Engineer') {
             const github = employees[i].getGithub();
-            const newHtml = [`
+            const newHtml = `
                 <div class="col-lg-3 col-md-5 m-2 my-5 p-0">
                     <div class="employee-box">
                         <div class="text-light p-1 title-card">
@@ -61,11 +61,11 @@ function employeeHtml(employees) {
                             <p class="bg-light border m-0 mb-3 mx-3">GitHub: <a href="https://github.com/${github}/">${github}</a></p>
                         </div>
                 </div>
-            </div>`];
+            </div>`;
             finalHtml.push(newHtml);
         } else if (employees[i].getRole() === 'Intern') {
             const school = employees[i].getSchool();
-            const newHtml = [`
+            const newHtml = `
                 <div class="col-lg-3 col-md-5 m-2 my-5 p-0">
                     <div class="employee-box">
                         <div class="text-light p-1 title-card">
@@ -78,12 +78,11 @@ function employeeHtml(employees) {
                             <p class="bg-light border m-0 mb-3 mx-3">School: ${school}</p>
                         </div>
                     </div>
-                </div>`];
+                </div>`;
             finalHtml.push(newHtml);
         }
     }
     finalHtml = finalHtml.join('');
-    console.log(finalHtml);
     return finalHtml;
 }
 

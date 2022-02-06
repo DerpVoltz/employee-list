@@ -10,22 +10,50 @@ const managerQuestions = [
     {
         type: 'input',
         name: 'name',
-        message: 'What is your team managers name?'
+        message: 'What is your team managers name?',
+        validate: nameInput => {
+            if(nameInput) {
+                return true;
+            }
+            console.log('Please input name.');
+            return false;
+        }
     },
     {
         type: 'input',
         name: 'id',
-        message: 'What is their employee ID?'
+        message: 'What is their employee ID?',
+        validate: idInput => {
+            if(idInput) {
+                return true;
+            }
+            console.log('Please input ID.');
+            return false;
+        }
     },
     {
         type: 'input',
         name: 'email',
-        message: 'What is their email?'
+        message: 'What is their email?',
+        validate: emailInput => {
+            if(emailInput) {
+                return true;
+            }
+            console.log('Please input email.');
+            return false;
+        }
     },
     {
         type: 'input',
         name: 'office',
-        message : 'What is their office number?'
+        message : 'What is their office number?',
+        validate: officeInput => {
+            if(officeInput) {
+                return true;
+            }
+            console.log('Please enter office number.');
+            return false;
+        }
     },
     {
         type: 'confirm',
@@ -47,22 +75,50 @@ const engineerQuestions = [
     {
         type: 'input',
         name: 'name',
-        message: 'What is their name?'
+        message: 'What is their name?',
+        validate: nameInput => {
+            if(nameInput) {
+                return true;
+            }
+            console.log('Please input name.');
+            return false;
+        }
     },
     {
         type: 'input',
         name: 'id',
-        message: 'What is there ID?'
+        message: 'What is there ID?',
+        validate: idInput => {
+            if(idInput) {
+                return true;
+            }
+            console.log('Please input ID.');
+            return false;
+        }
     },
     {
         type: 'input',
         name: 'email',
-        message: 'What is their email?'
+        message: 'What is their email?',
+        validate: emailInput => {
+            if(emailInput) {
+                return true;
+            }
+            console.log('Please input email.');
+            return false;
+        }
     },
     {
         type: 'input',
         name: 'github',
-        message: 'What is their github?'
+        message: 'What is their GitHub username?',
+        validate: githubInput => {
+            if(githubInput) {
+                return true;
+            }
+            console.log('Please input GitHub username.')
+            return false;
+        }
     },
     {
         type: 'confirm',
@@ -75,22 +131,50 @@ const internQuestions = [
     {
         type: 'input',
         name: 'name',
-        message: 'What is their name?'
+        message: 'What is their name?',
+        validate: nameInput => {
+            if(nameInput) {
+                return true;
+            }
+            console.log('Please input name.');
+            return false;
+        }
     },
     {
         type: 'input',
         name: 'id',
-        message: 'What is there ID?'
+        message: 'What is there ID?',
+        validate: idInput => {
+            if(idInput) {
+                return true;
+            }
+            console.log('Please input ID.');
+            return false;
+        }
     },
     {
         type: 'input',
         name: 'email',
-        message: 'What is their email?'
+        message: 'What is their email?',
+        validate: emailInput => {
+            if(emailInput) {
+                return true;
+            }
+            console.log('Please input email.');
+            return false;
+        }
     },
     {
         type: 'input',
         name: 'school',
-        message: 'What is their school?'
+        message: 'What is their school?',
+        validate: schoolInput => {
+            if(schoolInput) {
+                return true;
+            }
+            console.log('Please input school.');
+            return false;
+        }
     },
     {
         type: 'confirm',
@@ -110,7 +194,7 @@ function nextEmployee() {
                 if (data.newEmployee) {
                     nextEmployee(data);
                 } else {
-                    newFile();
+                    newFiles();
                 }
             });
         } else {
@@ -121,27 +205,26 @@ function nextEmployee() {
                 if (data.newEmployee) {
                     nextEmployee(data);
                 } else {
-                    newFile();
+                    newFiles();
                 }
             });
         }
     });
 }
 
-function manager() {
+function startScript() {
     inquirer.prompt(managerQuestions).then(data => {
-        console.log(data);
         const manager = new Manager(data.name, data.id, data.email, data.office);
         employees.push(manager);
         if(data.newEmployee) {
             nextEmployee();
         } else {
-            newFile();
+            newFiles();
         }
     });
 }
 
-function newFile() {
+function newFiles() {
     fs.writeFile('./dist/index.html', writeHtml(employees)).then(err => {
         if (err) {
             console.log('There was a problem with writing HTML');
@@ -151,7 +234,8 @@ function newFile() {
         if (err) {
             console.log('There was a problem with copyin CSS.')
         }
-    })
+    });
+    console.log('Check the "dist" folder for your new files!');
 }
 
-manager();
+startScript();
