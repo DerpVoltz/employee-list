@@ -1,0 +1,23 @@
+.team {
+    height: 125px;
+    padding: 40px;
+    padding-top: 70px;
+}
+
+.title-card {
+    background-color: #0077f7;
+}
+
+.employee-box {
+    box-shadow: 5px 5px 8px #888;
+    height: 225px;
+    background-color: #f6f7f9;
+}
+
+.team-container {
+    width: 850px;
+}
+
+.page-header {
+    background-color: #e84757;
+}
