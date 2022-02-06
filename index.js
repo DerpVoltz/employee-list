@@ -87,7 +87,7 @@ const engineerQuestions = [
     {
         type: 'input',
         name: 'id',
-        message: 'What is there ID?',
+        message: 'What is their ID?',
         validate: idInput => {
             if(idInput) {
                 return true;
@@ -143,7 +143,7 @@ const internQuestions = [
     {
         type: 'input',
         name: 'id',
-        message: 'What is there ID?',
+        message: 'What is their ID?',
         validate: idInput => {
             if(idInput) {
                 return true;

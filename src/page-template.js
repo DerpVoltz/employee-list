@@ -58,7 +58,7 @@ function employeeHtml(employees) {
                         <div>
                             <p class="bg-light border m-0 mt-3 mx-3">ID: ${id}</p>
                             <p class="bg-light border m-0 mx-3">Email: <a href="mailto:${email}">${email}</a></p>
-                            <p class="bg-light border m-0 mb-3 mx-3">GitHub: <a href="https://github.com/${github}/">${github}</a></p>
+                            <p class="bg-light border m-0 mb-3 mx-3">GitHub: <a href="https://github.com/${github}/" target="_blank">${github}</a></p>
                         </div>
                 </div>
             </div>`;
